@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>1. 网页端加载 Threejs</title>
+		<style>
+			body { margin: 0; }
+		</style>
+	</head>
+	<body>
+		<div id="app"></div>
+    <script type="importmap">
+			{
+				"imports": {
+					"three": "../libs/three.module.js",
+					"three/addons/": "../libs/jsm/"
+				}
+			}
+		</script>
+		<script type="module">
+      import * as THREE from 'three';
+      console.log(THREE);
+			document.querySelector('#app').innerHTML = 'Three 属性：<br/><br/>' + Object.keys(THREE).join(', <br/>');
+    </script>
+	</body>
+</html>

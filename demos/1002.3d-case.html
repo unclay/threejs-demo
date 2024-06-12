@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>2. 第一个 3D 案例</title>
+		<style>
+			body { margin: 0; background-color: #efefef; }
+		</style>
+	</head>
+	<body>
+		<div id="app">
+      <h2>第一个 3D 案例，这是所有的 3D 项目的前置基础</h2>
+      <p>例如：眼睛看着一棵树，在大脑里面构造画面</p>
+      <p>理解为：相机（眼睛）拍到一个场景（一片空间里面有一棵树），在胶片上里面形成图片（构造画面）</p>
+      <p>程序是：相机Camera（眼睛） + 场景Scene（空间+一棵树） + 渲染器Render（构造画面） = 屏幕画面</p>
+      <p>所以本章节是学习三剑客：相机Camera、场景Scene、渲染器Render</p>
+      <p>demo：我的眼睛看到100米处有一棵树和一个箱子</p>
+      <pre>
+        // 我的眼睛
+        const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      </pre>
+    </div>
+    <script type="importmap">
+			{
+				"imports": {
+					"three": "../libs/three.module.js",
+					"three/addons/": "../libs/jsm/"
+				}
+			}
+		</script>
+		<script type="module">
+      import * as THREE from 'three';
+      
+      // 场景
+      const scene = new THREE.Scene();
+      // 相机
+      const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      // 渲染器
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+    </script>
+	</body>
+</html>
