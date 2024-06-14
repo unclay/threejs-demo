@@ -75,6 +75,16 @@
               <van-slider min="0" max="400" v-model="camera.fov" />
             </template>
           </van-field>
+          <van-field label="near(近距离)">
+            <template #input>
+              <van-slider min="0.1" max="10" step="0.01" v-model="camera.near" />
+            </template>
+          </van-field>
+          <van-field label="far(远距离)">
+            <template #input>
+              <van-slider min="2000" max="10000" v-model="camera.far" />
+            </template>
+          </van-field>
         </van-cell-group>
       </div>
     </div>
@@ -166,6 +176,7 @@ const app = createApp({
       camera.aspect = cameraStore.aspect;
       camera.near = cameraStore.near;
       camera.far = cameraStore.far;
+      console.log(cameraStore.near, cameraStore.far);
       // 更新相机投影矩阵
       camera.updateProjectionMatrix();
     });
